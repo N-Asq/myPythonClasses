@@ -9,7 +9,7 @@ class Duration:
         Basic operations (+,-) supported with Duration and int.
 
     """    
-    def __init__(self,dd=0,HH=0,MM=0,SS=0,_sign=True): # On passe par object, pour ne pas passer par self.__setattr__()
+    def __init__(self,SS=0,MM=0,HH=0,dd=0,_sign=True): # On passe par object, pour ne pas passer par self.__setattr__()
         object.__setattr__(self,"dd",dd)
         object.__setattr__(self,"HH",HH)
         object.__setattr__(self,"MM",MM)
@@ -92,11 +92,11 @@ if __name__ == "__main__":
     print("Tests :")
 
     print("\nCréation de t1 : 1 jour + 32 h -128 min + 256 sec ")
-    t1 = Duration(1,32,-128,256)
+    t1 = Duration(256,-128,32,1)
     print(t1)
 
-    print("\nCréation de t2 : -1 jour - 45 h + 63 min + 20 sec ")
-    t2 = Duration(-1,-45,63,20)
+    print("\nCréation de t2 : -1 jour + 20 min + 63 sec ")
+    t2 = Duration(63,20,dd = -1)
     print(t2)
 
     print("\nt1 + t2 =",t1+t2)
